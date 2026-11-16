@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The House Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Kantumruy+Pro:wght@300;400;500;600&family=Moul&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F5F0E8; --sand:#E8DFD2; --stone:#CFC3B2; --brass:#A47E52; --brass-d:#86643D;
+  --ink:#1E1B18; --ink-2:#4A443E; --muted:#7A7168; --white:#FFFDF9;
+  --serif:'Cormorant Garamond',serif; --km:'Kantumruy Pro',sans-serif; --km-title:'Moul',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--km);background:var(--cream);color:var(--ink);line-height:1.75;font-weight:400;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.eyebrow{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:1.15rem;letter-spacing:.02em}
+h1,h2,h3{font-weight:400}
+.h-km{font-family:var(--km-title);line-height:1.7;letter-spacing:.01em}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.85rem 1.6rem;border:1px solid var(--ink);font-size:.95rem;transition:.25s;cursor:pointer;background:none;font-family:inherit;color:inherit}
+.btn:hover{background:var(--ink);color:var(--cream)}
+.btn.solid{background:var(--ink);color:var(--cream)}
+.btn.solid:hover{background:var(--brass);border-color:var(--brass)}
+
+/* header */
+header{position:sticky;top:0;z-index:50;background:rgba(245,240,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,27,24,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:.8rem}
+.brand .logo-box{width:46px;height:46px;display:grid;place-items:center}
+.brand .logo-box img,.brand .logo-box svg{width:100%;height:100%;object-fit:contain}
+.brand-name{font-family:var(--serif);font-size:1.35rem;line-height:1.05;letter-spacing:.04em}
+.brand-name small{display:block;font-family:var(--km);font-size:.62rem;letter-spacing:.28em;color:var(--muted);text-transform:uppercase}
+.menu{display:flex;gap:2.2rem;align-items:center;list-style:none}
+.menu a{font-size:.95rem;position:relative;padding:.3rem 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--brass);transition:.3s}
+.menu a:hover::after{width:100%}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;width:24px;height:1.5px;background:var(--ink);margin:6px auto;transition:.3s}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:4rem;align-items:center;padding:5rem 0 6rem}
+.hero h1{font-size:clamp(1.8rem,3.6vw,2.9rem);margin:.8rem 0 1.4rem}
+.hero h1 em{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:1.15em}
+.hero p.lead{color:var(--ink-2);font-size:1.05rem;max-width:34rem;margin-bottom:2.2rem}
+.hero .actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-art{position:relative}
+.hero-art .frame{aspect-ratio:4/5;overflow:hidden;border-radius:220px 220px 0 0;background:var(--sand)}
+[data-room] svg{width:100%;height:100%}
+.hero-art .badge{position:absolute;left:-2.2rem;bottom:2.5rem;background:var(--white);padding:1.1rem 1.4rem;box-shadow:0 20px 50px rgba(30,27,24,.12)}
+.hero-art .badge b{font-family:var(--serif);font-size:2.2rem;font-weight:600;display:block;line-height:1}
+.hero-art .badge span{font-size:.82rem;color:var(--muted)}
+
+/* sections */
+section{padding:6rem 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:2rem;margin-bottom:3.2rem;flex-wrap:wrap}
+.sec-head h2{font-size:clamp(1.5rem,2.6vw,2.1rem);margin-top:.4rem}
+.sec-head p{max-width:30rem;color:var(--ink-2)}
+
+/* about */
+#about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:center}
+.about-art{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-art .a1{grid-row:span 2;aspect-ratio:3/5}
+.about-art>div{overflow:hidden;background:var(--sand)}
+.about-art .a2,.about-art .a3{aspect-ratio:1}
+.about-text p{color:var(--ink-2);margin-bottom:1.2rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:2.4rem;border-top:1px solid var(--stone)}
+.stats div{padding:1.4rem 0}
+.stats b{font-family:var(--serif);font-size:2.6rem;font-weight:500;line-height:1;display:block}
+.stats span{font-size:.85rem;color:var(--muted)}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:5rem}
+.value{padding:2rem 1.6rem;border:1px solid var(--sand);transition:.3s}
+.value:hover{border-color:var(--brass);transform:translateY(-4px)}
+.value .num{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:1.4rem}
+.value h3{font-size:1.08rem;font-weight:600;margin:.6rem 0 .5rem}
+.value p{font-size:.9rem;color:var(--ink-2)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--stone)}
+.svc{padding:2.4rem 2rem 2.4rem 0;border-bottom:1px solid var(--stone)}
+.svc:not(:nth-child(3n)){border-right:1px solid var(--stone);margin-right:0}
+.svc:nth-child(3n+2),.svc:nth-child(3n){padding-left:2rem}
+.svc svg{width:38px;height:38px;stroke:var(--brass);fill:none;stroke-width:1.3;margin-bottom:1.2rem}
+.svc h3{font-weight:600;font-size:1.08rem;margin-bottom:.4rem}
+.svc p{font-size:.92rem;color:var(--ink-2)}
+
+/* projects */
+#projects{background:var(--ink);color:var(--cream)}
+#projects .sec-head p{color:var(--stone)}
+.filters{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.filters button{background:none;border:1px solid rgba(245,240,232,.25);color:var(--cream);padding:.5rem 1.2rem;font-family:inherit;font-size:.88rem;cursor:pointer;transition:.25s}
+.filters button.on,.filters button:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.grid-p{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.card{cursor:pointer;transition:opacity .3s}
+.card.hide{display:none}
+.card .thumb{aspect-ratio:4/3;overflow:hidden;position:relative}
+.card .thumb svg{width:100%;height:100%;transition:transform .7s}
+.card:hover .thumb svg{transform:scale(1.06)}
+.card .thumb .tag{position:absolute;top:1rem;left:1rem;background:var(--cream);color:var(--ink);font-size:.75rem;padding:.25rem .7rem}
+.card .meta{padding:1.1rem 0 0;display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.card h3{font-size:1.05rem;font-weight:500}
+.card .loc{font-size:.82rem;color:var(--stone);white-space:nowrap}
+.card .en{font-family:var(--serif);font-style:italic;color:var(--brass);font-size:1.05rem}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(20,18,16,.78);z-index:100;display:none;align-items:center;justify-content:center;padding:4vw}
+.modal.open{display:flex}
+.modal-box{background:var(--cream);max-width:980px;width:100%;display:grid;grid-template-columns:1.2fr 1fr;max-height:90vh;overflow:auto;position:relative}
+.modal-box .m-art{min-height:380px}
+.modal-box .m-art svg{width:100%;height:100%}
+.modal-box .m-txt{padding:2.6rem 2.2rem}
+.modal-box h3{font-size:1.4rem;margin:.3rem 0 1rem}
+.modal-box dl{display:grid;grid-template-columns:auto 1fr;gap:.4rem 1.2rem;font-size:.9rem;margin:1.4rem 0;padding:1.2rem 0;border-top:1px solid var(--stone);border-bottom:1px solid var(--stone)}
+.modal-box dt{color:var(--muted)}
+.modal-box p{color:var(--ink-2);font-size:.95rem}
+.m-close{position:absolute;top:.8rem;right:.8rem;width:40px;height:40px;border:0;background:var(--cream);font-size:1.5rem;cursor:pointer;z-index:2}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;counter-reset:s}
+.step{position:relative;padding-top:2.2rem;border-top:1px solid var(--ink)}
+.step::before{counter-increment:s;content:"0" counter(s);position:absolute;top:-.95rem;left:0;background:var(--cream);padding-right:.8rem;font-family:var(--serif);font-size:1.4rem;color:var(--brass)}
+.step h3{font-weight:600;font-size:1.02rem;margin-bottom:.4rem}
+.step p{font-size:.9rem;color:var(--ink-2)}
+
+/* contact */
+#contact{background:var(--sand)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:4rem}
+.info-list{list-style:none;margin-top:2rem}
+.info-list li{display:flex;gap:1.1rem;padding:1.2rem 0;border-bottom:1px solid var(--stone)}
+.info-list svg{width:22px;height:22px;stroke:var(--brass);fill:none;stroke-width:1.5;flex-shrink:0;margin-top:.25rem}
+.info-list small{display:block;color:var(--muted);font-size:.8rem}
+.socials{display:flex;gap:.7rem;margin-top:1.8rem}
+.socials a{width:42px;height:42px;border:1px solid var(--ink);display:grid;place-items:center;transition:.25s;font-size:.8rem;font-weight:600}
+.socials a:hover{background:var(--ink);color:var(--cream)}
+form{background:var(--white);padding:2.6rem}
+form h3{font-size:1.25rem;margin-bottom:1.6rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.field{margin-bottom:1.3rem}
+.field label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:.35rem}
+.field input,.field select,.field textarea{width:100%;border:0;border-bottom:1px solid var(--stone);background:transparent;padding:.55rem 0;font-family:inherit;font-size:.95rem;color:var(--ink);outline:none;transition:.25s;border-radius:0}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--brass)}
+.field textarea{resize:vertical;min-height:90px}
+.ok{display:none;margin-top:1rem;padding:1rem;background:var(--cream);border-left:3px solid var(--brass);font-size:.92rem}
+.ok.show{display:block}
+
+footer{background:var(--ink);color:var(--stone);padding:3rem 0 2rem;font-size:.88rem}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+footer .brand-name{color:var(--cream)}
+footer .brand-name small{color:var(--stone)}
+.copy{border-top:1px solid rgba(245,240,232,.12);margin-top:2rem;padding-top:1.4rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.8rem}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:960px){
+  .hero,.about-grid,.contact-grid{grid-template-columns:1fr;gap:3rem}
+  .hero{padding-top:3rem}
+  .hero-art{max-width:460px;margin:0 auto;width:100%}
+  .hero-art .badge{left:0}
+  .values,.steps{grid-template-columns:1fr 1fr}
+  .services{grid-template-columns:1fr 1fr}
+  .svc{padding:2rem 1.2rem!important;border-right:0!important}
+  .svc:nth-child(odd){border-right:1px solid var(--stone)!important}
+  .grid-p{grid-template-columns:1fr 1fr}
+  .modal-box{grid-template-columns:1fr}
+  .modal-box .m-art{min-height:240px}
+  .menu{position:fixed;top:78px;left:0;right:0;background:var(--cream);flex-direction:column;gap:0;padding:1rem 0;border-bottom:1px solid var(--stone);transform:translateY(-130%);transition:.35s;z-index:-1}
+  .menu.open{transform:none}
+  .menu li{width:100%;text-align:center}
+  .menu a{display:block;padding:.9rem}
+  .menu .btn{display:none}
+  .burger{display:block}
+}
+@media (max-width:600px){
+  section{padding:4.2rem 0}
+  .values,.steps,.services,.grid-p,.row{grid-template-columns:1fr}
+  .svc{border-right:0!important}
+  .stats b{font-size:2rem}
+  form{padding:1.8rem 1.4rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ LOGO ============
+  ដើម្បីដាក់ logo ពិតរបស់ក្រុមហ៊ុន៖ ជំនួស <svg> ខាងក្រោមនៅក្នុង <template id="logo"> ដោយ
+  <img src="data:image/png;base64,..." alt="The House"> ។ Logo នឹងបង្ហាញគ្រប់កន្លែងដោយស្វ័យប្រវត្តិ។
+-->
+<template id="logo">
+  <svg viewBox="0 0 64 64" aria-label="The House logo">
+    <rect x="1" y="1" width="62" height="62" fill="none" stroke="#A47E52" stroke-width="1.5"/>
+    <path d="M12 30 L32 13 L52 30" fill="none" stroke="#1E1B18" stroke-width="2.2" stroke-linejoin="miter"/>
+    <path d="M18 27 V51 H46 V27" fill="none" stroke="#1E1B18" stroke-width="2.2"/>
+    <path d="M27 51 V38 H37 V51" fill="none" stroke="#A47E52" stroke-width="2"/>
+    <text x="32" y="34" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="9" font-style="italic" fill="#A47E52">h</text>
+  </svg>
+</template>
+
+<header>
+  <div class="wrap nav">
+    <a href="#home" class="brand">
+      <span class="logo-box" data-logo></span>
+      <span class="brand-name">THE HOUSE<small>Interior Design</small></span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#home">ទំព័រដើម</a></li>
+      <li><a href="#about">អំពីយើង</a></li>
+      <li><a href="#services">សេវាកម្ម</a></li>
+      <li><a href="#projects">គម្រោង</a></li>
+      <li><a href="#contact">ទំនាក់ទំនង</a></li>
+      <li><a href="#contact" class="btn solid">ពិគ្រោះឥតគិតថ្លៃ</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div class="reveal">
+      <span class="eyebrow">Designing homes with soul</span>
+      <h1 class="h-km">រចនាលំហរស់នៅ<br>ដែលមាន <em>ព្រលឹង</em></h1>
+      <p class="lead">The House Interior Design ជាក្រុមអ្នករចនាផ្នែកខាងក្នុង ដែលប្រែក្លាយផ្ទះ ខុនដូ ការិយាល័យ និងហាងរបស់អ្នក ឲ្យក្លាយជាលំហដ៏ស្រស់ស្អាត ងាយស្រួលប្រើ និងឆ្លុះបញ្ចាំងពីរបៀបរស់នៅរបស់អ្នក។</p>
+      <div class="actions">
+        <a href="#projects" class="btn solid">មើលគម្រោងរបស់យើង →</a>
+        <a href="#contact" class="btn">ទាក់ទងយើង</a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="frame" data-room="hero"></div>
+      <div class="badge"><b>120+</b><span>គម្រោងបានបញ្ចប់</span></div>
+    </div>
+  </div>
+</main>
+
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-art reveal">
+        <div class="a1" data-room="about1"></div>
+        <div class="a2" data-room="about2"></div>
+        <div class="a3" data-room="about3"></div>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">About us</span>
+        <h2 class="h-km" style="font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.4rem 0 1.4rem">អំពីក្រុមហ៊ុន The House</h2>
+        <p>The House Interior Design បានបង្កើតឡើងដោយក្តីស្រលាញ់ចំពោះការរចនា និងជំនឿថា ផ្ទះគ្រប់ខ្នងសមនឹងទទួលបានលំហដែលធ្វើឲ្យម្ចាស់ផ្ទះមានអារម្មណ៍កក់ក្តៅ និងមានមោទនភាព។</p>
+        <p>យើងរួមបញ្ចូលរចនាប័ទ្មទំនើប ជាមួយនឹងសម្ភារៈធម្មជាតិ និងភាពល្អឯកនៃវប្បធម៌ខ្មែរ ដើម្បីបង្កើតលំហដែលមានតុល្យភាពរវាងសោភ័ណភាព មុខងារ និងថវិកា។ ចាប់ពីគំនិតដំបូង រហូតដល់ការប្រគល់កូនសោ — យើងនៅជាមួយអ្នកគ្រប់ជំហាន។</p>
+        <div class="stats">
+          <div><b data-count="10">0</b><span>ឆ្នាំបទពិសោធន៍</span></div>
+          <div><b data-count="120">0</b><span>គម្រោងបានបញ្ចប់</span></div>
+          <div><b data-count="98">0</b><span>% អតិថិជនពេញចិត្ត</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="values">
+      <div class="value reveal"><span class="num">i.</span><h3>ចក្ខុវិស័យ</h3><p>ក្លាយជាក្រុមហ៊ុនរចនាផ្នែកខាងក្នុងដែលគេទុកចិត្តបំផុតនៅកម្ពុជា។</p></div>
+      <div class="value reveal"><span class="num">ii.</span><h3>បេសកកម្ម</h3><p>បង្កើតលំហដែលស្អាត ប្រើប្រាស់បានយូរ និងសមស្របនឹងជីវិតរបស់អតិថិជនម្នាក់ៗ។</p></div>
+      <div class="value reveal"><span class="num">iii.</span><h3>គុណភាព</h3><p>ជ្រើសរើសសម្ភារៈល្អ និងត្រួតពិនិត្យការងារគ្រប់ដំណាក់កាលយ៉ាងហ្មត់ចត់។</p></div>
+      <div class="value reveal"><span class="num">iv.</span><h3>តម្លាភាព</h3><p>តម្លៃច្បាស់លាស់ កាលវិភាគច្បាស់លាស់ គ្មានការចំណាយលាក់កំបាំង។</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">What we do</span><h2 class="h-km">សេវាកម្មរបស់យើង</h2></div>
+      <p>សេវាកម្មពេញលេញ ចាប់ពីការរចនាគំនិត រហូតដល់ការសាងសង់ និងតុបតែងបញ្ចប់។</p>
+    </div>
+    <div class="services">
+      <div class="svc reveal"><svg viewBox="0 0 40 40"><path d="M5 19 L20 6 L35 19 M9 16 V34 H31 V16"/><path d="M16 34 V24 H24 V34"/></svg><h3>រចនាផ្ទះលំនៅដ្ឋាន</h3><p>វីឡា ផ្ទះល្វែង ខុនដូ — រចនាតាមរបៀបរស់នៅរបស់គ្រួសារអ្នក។</p></div>
+      <div class="svc reveal"><svg viewBox="0 0 40 40"><rect x="6" y="8" width="28" height="26"/><path d="M6 16 H34 M14 8 V34 M26 16 V34"/></svg><h3>រចនាការិយាល័យ</h3><p>លំហការងារដែលជំរុញផលិតភាព និងបង្ហាញអត្តសញ្ញាណម៉ាក។</p></div>
+      <div class="svc reveal"><svg viewBox="0 0 40 40"><path d="M6 14 H34 L32 8 H8 Z"/><path d="M8 14 V34 H32 V14 M16 34 V24 H24 V34"/></svg><h3>ហាង & ភោជនីយដ្ឋាន</h3><p>រចនាកាហ្វេ ហាង និងភោជនីយដ្ឋាន ដែលទាក់ទាញអតិថិជន។</p></div>
+      <div class="svc reveal"><svg viewBox="0 0 40 40"><path d="M6 34 L34 6 M10 34 H6 V30"/><path d="M22 10 L30 18"/></svg><h3>ប្លង់ & 3D Render</h3><p>ប្លង់ 2D និងរូបភាព 3D ជាក់ស្តែង មុនពេលចាប់ផ្តើមសាងសង់។</p></div>
+      <div class="svc reveal"><svg viewBox="0 0 40 40"><rect x="6" y="20" width="28" height="8"/><path d="M8 28 V33 M32 28 V33 M10 20 V14 H30 V20"/></svg><h3>គ្រឿងសង្ហារិមតាមបំណង</h3><p>ផលិតតុ ទូ គ្រែ តាមទំហំ និងរចនាប័ទ្មដែលអ្នកចង់បាន។</p></div>
+      <div class="svc reveal"><svg viewBox="0 0 40 40"><path d="M20 6 V12 M20 28 V34 M6 20 H12 M28 20 H34"/><circle cx="20" cy="20" r="7"/></svg><h3>កែលម្អ & ជួសជុល</h3><p>ធ្វើឲ្យលំហចាស់មានជីវិតថ្មី ដោយរក្សាថវិកាឲ្យសមរម្យ។</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">Selected work</span><h2 class="h-km">គម្រោងរបស់យើង</h2></div>
+      <p>គម្រោងមួយចំនួនដែលយើងបានរចនា និងសាងសង់ជូនអតិថិជន។ ចុចលើគម្រោងដើម្បីមើលព័ត៌មានលម្អិត។</p>
+    </div>
+    <div class="filters reveal" id="filters">
+      <button class="on" data-f="all">ទាំងអស់</button>
+      <button data-f="home">លំនៅដ្ឋាន</button>
+      <button data-f="office">ការិយាល័យ</button>
+      <button data-f="shop">ហាង & កាហ្វេ</button>
+    </div>
+    <div class="grid-p" id="grid"></div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div><span class="eyebrow">How we work</span><h2 class="h-km">ដំណើរការការងារ</h2></div>
+      <p>បួនជំហានសាមញ្ញ ពីគំនិតរបស់អ្នក ទៅជាលំហពិតប្រាកដ។</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><h3>ពិគ្រោះយោបល់</h3><p>ជួបពិភាក្សាពីតម្រូវការ រចនាប័ទ្ម និងថវិកា ដោយឥតគិតថ្លៃ។</p></div>
+      <div class="step reveal"><h3>រចនា & 3D</h3><p>រៀបចំប្លង់ ជ្រើសរើសសម្ភារៈ និងបង្ហាញរូបភាព 3D ឲ្យអ្នកឯកភាព។</p></div>
+      <div class="step reveal"><h3>សាងសង់</h3><p>ក្រុមជាងជំនាញអនុវត្ត ដោយមានអ្នកគ្រប់គ្រងគម្រោងតាមដានជាប្រចាំ។</p></div>
+      <div class="step reveal"><h3>ប្រគល់ & ធានា</h3><p>ត្រួតពិនិត្យចុងក្រោយ ប្រគល់កូនសោ និងសេវាធានាក្រោយការងារ។</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <span class="eyebrow">Get in touch</span>
+      <h2 class="h-km" style="font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.4rem 0 1rem">ទំនាក់ទំនងយើង</h2>
+      <p style="color:var(--ink-2)">ចង់ចាប់ផ្តើមគម្រោងថ្មី ឬមានសំណួរ? សូមទាក់ទងមកយើងខ្ញុំ — ក្រុមការងារនឹងឆ្លើយតបក្នុងរយៈពេល 24 ម៉ោង។</p>
+      <ul class="info-list">
+        <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div><small>អាសយដ្ឋាន</small>[អាសយដ្ឋានក្រុមហ៊ុន] ភ្នំពេញ កម្ពុជា</div></li>
+        <li><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><small>ទូរស័ព្ទ / Telegram</small>[+855 លេខទូរស័ព្ទ]</div></li>
+        <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg><div><small>អ៊ីមែល</small>[email@thehouse.com]</div></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>ម៉ោងធ្វើការ</small>ច័ន្ទ – សៅរ៍ ៈ 8:00 – 17:30</div></li>
+      </ul>
+      <div class="socials">
+        <a href="#" title="Facebook">f</a><a href="#" title="Telegram">tg</a><a href="#" title="Instagram">ig</a><a href="#" title="TikTok">tt</a>
+      </div>
+    </div>
+    <form id="form" class="reveal" novalidate>
+      <h3 class="h-km" style="font-size:1.1rem">ស្នើសុំការពិគ្រោះយោបល់</h3>
+      <div class="row">
+        <div class="field"><label>ឈ្មោះ *</label><input name="name" required></div>
+        <div class="field"><label>លេខទូរស័ព្ទ *</label><input name="phone" type="tel" required></div>
+      </div>
+      <div class="row">
+        <div class="field"><label>ប្រភេទគម្រោង</label>
+          <select name="type"><option>ផ្ទះ / វីឡា</option><option>ខុនដូ / អាផាតមិន</option><option>ការិយាល័យ</option><option>ហាង / កាហ្វេ / ភោជនីយដ្ឋាន</option><option>ផ្សេងៗ</option></select></div>
+        <div class="field"><label>ថវិកាប្រហាក់ប្រហែល</label>
+          <select name="budget"><option>តិចជាង $10,000</option><option>$10,000 – $30,000</option><option>$30,000 – $80,000</option><option>លើស $80,000</option></select></div>
+      </div>
+      <div class="field"><label>រៀបរាប់ពីគម្រោងរបស់អ្នក</label><textarea name="msg"></textarea></div>
+      <button class="btn solid" type="submit">ផ្ញើសំណើ →</button>
+      <div class="ok" id="ok"></div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a href="#home" class="brand"><span class="logo-box" data-logo style="background:var(--cream);padding:4px"></span><span class="brand-name">THE HOUSE<small>Interior Design</small></span></a>
+      <ul class="menu" style="position:static;transform:none;flex-direction:row;background:none;border:0;padding:0;flex-wrap:wrap;gap:1.6rem;z-index:0">
+        <li><a href="#about">អំពីយើង</a></li><li><a href="#projects">គម្រោង</a></li><li><a href="#contact">ទំនាក់ទំនង</a></li>
+      </ul>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> The House Interior Design. រក្សាសិទ្ធិគ្រប់យ៉ាង។</span><span>Phnom Penh · Cambodia</span></div>
+  </div>
+</footer>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="m-close" id="mclose">×</button><div class="m-art" id="mart"></div><div class="m-txt" id="mtxt"></div></div></div>
+
+<script>
+// ---- logo injection
+const logoTpl=document.getElementById('logo').innerHTML;
+document.querySelectorAll('[data-logo]').forEach(el=>el.innerHTML=logoTpl);
+
+// ---- illustrated rooms (SVG)
+const P={
+  warm:{wall:'#E9DFD1',wall2:'#DCCFBD',floor:'#B89574',sofa:'#8A6F57',accent:'#A47E52',rug:'#CDBBA3',plant:'#6F7B5E'},
+  sage:{wall:'#DDE0D3',wall2:'#C9CEBC',floor:'#A98A6C',sofa:'#6F7B5E',accent:'#C9A27A',rug:'#E8E2D4',plant:'#55634A'},
+  dark:{wall:'#3A3430',wall2:'#2E2925',floor:'#6B513C',sofa:'#C9B79F',accent:'#B8915F',rug:'#4C433C',plant:'#6F7B5E'},
+  clay:{wall:'#E6D3C3',wall2:'#D7BFAA',floor:'#9C7458',sofa:'#B5735A',accent:'#7A5A3E',rug:'#F0E6DA',plant:'#6F7B5E'},
+  cool:{wall:'#E4E3DF',wall2:'#D3D2CC',floor:'#BFAE98',sofa:'#5C6670',accent:'#A47E52',rug:'#CFCBC2',plant:'#5F6E55'},
+  sand:{wall:'#EFE7DB',wall2:'#E2D6C4',floor:'#C7A985',sofa:'#EDE4D6',accent:'#8A6F57',rug:'#D8C7B0',plant:'#6F7B5E'}
+};
+function room(kind,pal){
+  const c=P[pal];
+  const base=`<rect width="400" height="300" fill="${c.wall}"/><rect y="210" width="400" height="90" fill="${c.floor}"/><rect y="206" width="400" height="5" fill="${c.wall2}"/>`;
+  const plant=x=>`<rect x="${x-9}" y="176" width="18" height="30" fill="${c.wall2}"/><ellipse cx="${x}" cy="160" rx="14" ry="26" fill="${c.plant}"/><ellipse cx="${x-12}" cy="170" rx="9" ry="18" fill="${c.plant}" opacity=".8"/><ellipse cx="${x+12}" cy="168" rx="9" ry="19" fill="${c.plant}" opacity=".9"/>`;
+  const lamp=x=>`<line x1="${x}" y1="0" x2="${x}" y2="60" stroke="${c.accent}" stroke-width="1.5"/><path d="M${x-18} 78 Q${x} 50 ${x+18} 78 Z" fill="${c.accent}"/>`;
+  const arch=(x,w)=>`<path d="M${x} 190 V${110} A${w/2} ${w/2} 0 0 1 ${x+w} 110 V190 Z" fill="${c.wall2}"/><path d="M${x+8} 190 V112 A${w/2-8} ${w/2-8} 0 0 1 ${x+w-8} 112 V190 Z" fill="#F7F2EA" opacity=".55"/>`;
+  const art=(x,y,w,h)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#F7F2EA"/><circle cx="${x+w*.4}" cy="${y+h*.55}" r="${w*.22}" fill="${c.accent}" opacity=".75"/><rect x="${x+w*.5}" y="${y+h*.25}" width="${w*.28}" height="${h*.5}" fill="${c.sofa}" opacity=".6"/>`;
+  let s='';
+  if(kind==='living'){
+    s=arch(40,90)+art(230,70,90,64)+lamp(190)+`<ellipse cx="230" cy="262" rx="150" ry="22" fill="${c.rug}"/><rect x="150" y="168" width="170" height="44" rx="10" fill="${c.sofa}"/><rect x="140" y="150" width="190" height="34" rx="12" fill="${c.sofa}" opacity=".85"/><rect x="160" y="212" width="6" height="10" fill="${c.accent}"/><rect x="304" y="212" width="6" height="10" fill="${c.accent}"/><rect x="190" y="238" width="80" height="8" rx="4" fill="${c.accent}"/><rect x="200" y="246" width="4" height="14" fill="${c.accent}"/><rect x="256" y="246" width="4" height="14" fill="${c.accent}"/>`+plant(355);
+  }else if(kind==='bed'){
+    s=`<rect x="110" y="90" width="180" height="90" rx="4" fill="${c.wall2}"/>`+lamp(85)+lamp(315)+`<rect x="100" y="170" width="200" height="50" rx="6" fill="#F4EEE4"/><rect x="100" y="196" width="200" height="34" rx="4" fill="${c.sofa}"/><rect x="120" y="156" width="70" height="24" rx="10" fill="#FBF8F2"/><rect x="210" y="156" width="70" height="24" rx="10" fill="#FBF8F2"/><rect x="56" y="180" width="40" height="40" fill="${c.accent}"/><rect x="304" y="180" width="40" height="40" fill="${c.accent}"/>`+art(170,40,60,40);
+  }else if(kind==='kitchen'){
+    s=`<rect x="30" y="60" width="340" height="60" fill="${c.wall2}"/>`+[0,1,2,3,4].map(i=>`<rect x="${36+i*67}" y="66" width="61" height="48" fill="${c.sofa}" opacity=".9"/>`).join('')+`<rect x="30" y="150" width="340" height="60" fill="${c.sofa}"/><rect x="30" y="144" width="340" height="8" fill="#F4EEE4"/><rect x="90" y="225" width="220" height="12" fill="#F4EEE4"/><rect x="96" y="237" width="208" height="40" fill="${c.accent}"/>`+lamp(150)+lamp(250);
+  }else if(kind==='office'){
+    s=`<rect x="20" y="40" width="160" height="150" fill="#F7F2EA" opacity=".6"/>`+[0,1,2].map(i=>`<line x1="${20+i*53}" y1="40" x2="${20+i*53}" y2="190" stroke="${c.wall2}" stroke-width="4"/>`).join('')+`<line x1="20" y1="115" x2="180" y2="115" stroke="${c.wall2}" stroke-width="4"/><rect x="210" y="60" width="160" height="130" fill="${c.wall2}"/>`+[0,1,2].map(i=>`<rect x="218" y="${70+i*40}" width="144" height="4" fill="${c.accent}"/>`).join('')+`<rect x="70" y="200" width="260" height="10" fill="${c.accent}"/><rect x="80" y="210" width="6" height="50" fill="${c.sofa}"/><rect x="314" y="210" width="6" height="50" fill="${c.sofa}"/><rect x="170" y="225" width="60" height="40" rx="8" fill="${c.sofa}"/>`+lamp(200)+plant(370);
+  }else if(kind==='cafe'){
+    s=`<rect x="0" y="0" width="400" height="40" fill="${c.wall2}"/>`+arch(30,80)+arch(130,80)+`<rect x="240" y="120" width="140" height="90" fill="${c.accent}"/><rect x="236" y="114" width="148" height="8" fill="#F4EEE4"/>`+[0,1,2].map(i=>`<rect x="${252+i*44}" y="80" width="26" height="30" rx="3" fill="#F7F2EA"/>`).join('')+[60,160].map(x=>`<circle cx="${x+10}" cy="232" r="22" fill="${c.sofa}"/><rect x="${x+8}" y="232" width="4" height="40" fill="${c.accent}"/>`).join('')+lamp(70)+lamp(170)+lamp(310);
+  }else if(kind==='dining'){
+    s=art(150,50,100,70)+`<rect x="100" y="200" width="200" height="10" rx="4" fill="${c.accent}"/><rect x="190" y="210" width="20" height="50" fill="${c.accent}"/>`+[80,280].map(x=>`<rect x="${x}" y="170" width="40" height="70" rx="6" fill="${c.sofa}"/>`).join('')+lamp(200)+plant(40)+plant(360);
+  }
+  return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">${base}${s}</svg>`;
+}
+const fixed={hero:['living','warm'],about1:['bed','sand'],about2:['kitchen','sage'],about3:['dining','clay']};
+document.querySelectorAll('[data-room]').forEach(el=>{const [k,p]=fixed[el.dataset.room];el.innerHTML=room(k,p)});
+
+// ---- projects
+const projects=[
+  {t:'វីឡាបូរី ពេញសុខ',en:'Borey Villa',cat:'home',catKm:'លំនៅដ្ឋាន',loc:'ភ្នំពេញ',year:'2025',size:'320 m²',style:'Modern Khmer',k:'living',p:'warm',d:'វីឡាពីរជាន់ ដែលរួមបញ្ចូលឈើធម្មជាតិ ថ្មខៀវ និងក្បូរក្បាច់ខ្មែរបែបទំនើប ធ្វើឲ្យលំហរស់នៅភ្លឺថ្លា និងកក់ក្តៅ។'},
+  {t:'ខុនដូ Riverside',en:'Riverside Condo',cat:'home',catKm:'លំនៅដ្ឋាន',loc:'ភ្នំពេញ',year:'2025',size:'110 m²',style:'Japandi',k:'bed',p:'sand',d:'ខុនដូពីរបន្ទប់គេង ក្នុងរចនាប័ទ្ម Japandi — សាមញ្ញ ស្ងប់ស្ងាត់ និងប្រើប្រាស់លំហបានអតិបរមា។'},
+  {t:'ការិយាល័យ Lotus Tech',en:'Lotus Tech Office',cat:'office',catKm:'ការិយាល័យ',loc:'ភ្នំពេញ',year:'2024',size:'450 m²',style:'Contemporary',k:'office',p:'cool',d:'ការិយាល័យបើកចំហ សម្រាប់បុគ្គលិក 60 នាក់ មានបន្ទប់ប្រជុំ តំបន់សម្រាក និងពន្លឺធម្មជាតិពេញលេញ។'},
+  {t:'កាហ្វេ Saray',en:'Saray Café',cat:'shop',catKm:'ហាង & កាហ្វេ',loc:'ព្រះសីហនុ',year:'2024',size:'140 m²',style:'Tropical Minimal',k:'cafe',p:'clay',d:'ហាងកាហ្វេក្បែរសមុទ្រ ដែលប្រើពណ៌ដីឥដ្ឋ ធ្នូទ្វារ និងឈើឫស្សី ដើម្បីបង្កើតបរិយាកាសត្រជាក់ និងស្វាគមន៍។'},
+  {t:'ផ្ទះល្វែង Toul Kork',en:'Shophouse Renovation',cat:'home',catKm:'លំនៅដ្ឋាន',loc:'ភ្នំពេញ',year:'2024',size:'180 m²',style:'Warm Modern',k:'kitchen',p:'sage',d:'កែលម្អផ្ទះល្វែងចាស់ ឲ្យក្លាយជាផ្ទះទំនើប មានផ្ទះបាយបើកចំហ និងបន្ទប់ទទួលភ្ញៀវធំទូលាយ។'},
+  {t:'ភោជនីយដ្ឋាន Ember',en:'Ember Restaurant',cat:'shop',catKm:'ហាង & កាហ្វេ',loc:'សៀមរាប',year:'2023',size:'260 m²',style:'Dark Luxe',k:'dining',p:'dark',d:'ភោជនីយដ្ឋានលំដាប់ខ្ពស់ ពណ៌ងងឹតប្រណីត ជាមួយពន្លឺក្តៅ និងសម្ភារៈលង្ហិន។'},
+];
+const grid=document.getElementById('grid');
+grid.innerHTML=projects.map((p,i)=>`<article class="card reveal" data-cat="${p.cat}" data-i="${i}"><div class="thumb">${room(p.k,p.p)}<span class="tag">${p.catKm}</span></div><div class="meta"><div><span class="en">${p.en}</span><h3>${p.t}</h3></div><span class="loc">${p.loc} · ${p.year}</span></div></article>`).join('');
+
+document.getElementById('filters').addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  document.querySelectorAll('#filters button').forEach(x=>x.classList.toggle('on',x===b));
+  const f=b.dataset.f;
+  grid.querySelectorAll('.card').forEach(c=>c.classList.toggle('hide',f!=='all'&&c.dataset.cat!==f));
+});
+
+const modal=document.getElementById('modal');
+grid.addEventListener('click',e=>{
+  const c=e.target.closest('.card');if(!c)return;
+  const p=projects[c.dataset.i];
+  document.getElementById('mart').innerHTML=room(p.k,p.p);
+  document.getElementById('mtxt').innerHTML=`<span class="eyebrow">${p.en}</span><h3 class="h-km">${p.t}</h3><p>${p.d}</p><dl><dt>ប្រភេទ</dt><dd>${p.catKm}</dd><dt>ទីតាំង</dt><dd>${p.loc}</dd><dt>ទំហំ</dt><dd>${p.size}</dd><dt>រចនាប័ទ្ម</dt><dd>${p.style}</dd><dt>ឆ្នាំ</dt><dd>${p.year}</dd></dl><a href="#contact" class="btn solid" id="mcta">ចង់បានគម្រោងស្រដៀងនេះ →</a>`;
+  modal.classList.add('open');document.body.style.overflow='hidden';
+});
+function closeM(){modal.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('mclose').onclick=closeM;
+modal.addEventListener('click',e=>{if(e.target===modal||e.target.id==='mcta')closeM()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+
+// ---- mobile menu
+const menu=document.getElementById('menu');
+document.getElementById('burger').onclick=()=>menu.classList.toggle('open');
+menu.addEventListener('click',e=>{if(e.target.tagName==='A')menu.classList.remove('open')});
+
+// ---- form
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target,ok=document.getElementById('ok');
+  if(!f.name.value.trim()||!f.phone.value.trim()){ok.textContent='សូមបំពេញឈ្មោះ និងលេខទូរស័ព្ទ។';ok.classList.add('show');return}
+  ok.innerHTML=`អរគុណ <b>${f.name.value.replace(/[<>&]/g,'')}</b>! ព័ត៌មានរបស់អ្នកត្រូវបានរៀបចំរួចរាល់។ (ទម្រង់នេះជាគំរូ — ពេលដាក់លើ server ពិត វានឹងផ្ញើទៅក្រុមហ៊ុនដោយស្វ័យប្រវត្តិ។)`;
+  ok.classList.add('show');f.reset();
+});
+
+// ---- reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting)return;
+  en.target.classList.add('in');
+  en.target.querySelectorAll('[data-count]').forEach(n=>{
+    const end=+n.dataset.count;let v=0;const st=Math.max(1,Math.ceil(end/40));
+    const t=setInterval(()=>{v=Math.min(end,v+st);n.textContent=v+(n.nextElementSibling.textContent.startsWith('%')?'':'+');if(v>=end)clearInterval(t)},30);
+  });
+  io.unobserve(en.target);
+}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
